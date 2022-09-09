@@ -10,6 +10,18 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
+    # Printing List
+    def print_list(self):
+        temp = self.head
+
+        while temp is not None:
+            print(temp.data, end="")
+            if temp.next is None:
+                last = temp
+            temp = temp.next
+
+        print("")
+
     # Inserting a node at the beginning of the List
     def add_in_beginning(self, val):
         new_node = Node(val)
@@ -40,7 +52,7 @@ class LinkedList:
     def search(self, key):
         temp = self.head
 
-        while temp is not Node:
+        while temp is not None:
             if temp.data is key:
                 return True
             temp = temp.next
@@ -64,3 +76,18 @@ class LinkedList:
         else:
             temp.prev.next = temp.next
             temp.next.prev = temp.prev
+
+
+# Execution
+llist = LinkedList()
+llist.head = Node(4)
+llist.add_in_end(5)
+llist.add_in_beginning(3)
+llist.add_in_beginning(2)
+llist.add_in_beginning(1)
+llist.print_list()
+print(llist.search(5))
+print(llist.search(2))
+print(llist.search(7))
+llist.delete(1)
+llist.print_list()
